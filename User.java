@@ -16,13 +16,43 @@ class Usermaker {
 }
 
 public class User {
-    public static void main(String[] args) {
-        int arr[][] = { { 1, 2, 3 }, { 4, 5 }, { 6 } };
+    public static void number(int arr[][]) {
         for (int num[] : arr) {
             for (int x : num) {
                 System.out.println(x);
             }
         }
+    }
+
+    public static String makestring(int arr[][]) {
+        String output = "";
+        for (int num[] : arr) {
+            for (int x : num) {
+                output = output + x;
+            }
+        }
+        return output;
+    }
+
+    public void print(int x) {
+        System.out.println(x);
+    }
+
+    public void print(String x) {
+        System.out.println(x);
+    }
+
+    public static void main(String[] args) {
+        User v = new User();
+        int[][] arr = new int[][] { { 1, 2, 3 }, { 4, 5 }, { 6 } };
+        int[][] arr2 = { { 7, 8, 9 }, { 10, 11, 12 } };
+        number(arr);
+        number(arr2);
+        String string1 = makestring(arr);
+        String string2 = makestring(arr2);
+        v.print(string1);
+        v.print(string2);
+
         Usermaker user1 = new Usermaker("이동길", 23);
         Usermaker user2 = new Usermaker("홍길동", 20);
         user1.print();
