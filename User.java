@@ -1,5 +1,7 @@
 package Java;
 
+import java.util.Scanner;
+
 class Usermaker {
     String name;
     int age;
@@ -43,6 +45,7 @@ public class User {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         User v = new User();
         int[][] arr = new int[][] { { 1, 2, 3 }, { 4, 5 }, { 6 } };
         int[][] arr2 = { { 7, 8, 9 }, { 10, 11, 12 } };
@@ -52,11 +55,12 @@ public class User {
         String string2 = makestring(arr2);
         v.print(string1);
         v.print(string2);
-
+        String name = sc.nextLine();
         Usermaker user1 = new Usermaker("이동길", 23);
-        Usermaker user2 = new Usermaker("홍길동", 20);
+        Usermaker user2 = new Usermaker(name, 20);
         user1.print();
         user2.print();
+        sc.close();
     }
 
 }
