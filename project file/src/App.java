@@ -7,5 +7,6 @@ public class App {
         Bark b = new Bark();
         b.b(v);
         b.b(a);
+        System.out.println(Sum.sumNum(1, 2, 3, 4, 5));
     }
 }
