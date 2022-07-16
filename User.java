@@ -6,6 +6,14 @@ class Usermaker {
     String name;
     int age;
 
+    Usermaker() {
+        this("guest");
+    }
+
+    Usermaker(String name) {
+        this(name, 0);
+    }
+
     Usermaker(String name, int age) {
         this.name = name;
         this.age = age;
