@@ -274,3 +274,105 @@ public class Employee extends Person
 2. 메서드 오버라이딩은 상속한 메서드의 선언부를 변경할 수 없다.
 3. 메서드 오버라이딩할떄 접근제한자는 부모의 메서드와 같거나 넓은범위로만 변경가능하다.
 4. 프로그램 실행시 메서드 호출 우선순위는 오버라이딩한 메서드가 부모의 메서드보다 높다.
+
+### 접근제한자
+
+java의 접근 제한자는 private, (default), protected, public이 있다.
+
+private<(default)<protected<public 순으로 넓다.
+
+### 부모 메서드 호출
+
+자식 클래스에서 super를 통해 접근한다.
+
+```java
+void method(){
+	super.method();
+}
+```
+
+### 상속 클래스의 생성자
+
+⇒ 상속된 클래스의 인스턴스가 실행될때, 부모의 생성자→자식의 생성자 순으로 생성된다.
+
+상속된 클래스가 실행될때, super();이라는 코드가 앞에 추가된다.
+
+super를 사용해서 부모 생성자를 오버로딩 할 수 있다.
+
+```java
+public class Person{
+	String name;
+	int age;
+	Person(String name, int age){
+		this.name=name;
+		this.age=age;
+	}
+}
+class Student extends Person{
+	int grades;
+	Student(int grades){
+		super(name,age);
+		this.grades=grades;
+	}
+}
+```
+
+### final 제어자
+
+클래스, 변수, 메서드 선언시 앞에 final을 붙여서 수정할 수 없도록 제한함
+
+1. final 메서드는 메서드를 오버라이딩 할 수 없게 제한한다. 
+2. final 클래스는 클래스를 상속받을 수 없게 제한함
+
+### 추상 메서드
+
+해당 클래스가 추상 메서드를 포함하는 경우, 해당 클래스 앞에 abstract를 붙여야한다.
+
+```java
+abstract class Empolyee{
+	String name;
+	int salary;
+	public abstract void calcSalary();
+}
+class Salesman extends Empolee{
+	calcSalary(int salary){
+		return salary*2;
+	}
+}
+```
+
+추상 메서드는 해당 클래스를 상속하여 그 기능을 선언해주어야 한다.
+
+만약, 해당 자식 클래스에서 추상메서드를 사용하지 않는 경우, 따로 본문을 작성하지 않아도 되나, 해당 자식 클래스 역시 추상클래스가 되어야 한다.
+
+추상클래스는 인스턴스를 생성할 수 없다.
+
+### 인터페이스
+
+인터페이스는 클래스와 유사하나 다르다.
+
+다만, 인터페이스 메서드는 본문을 적지 않는다. 인터페이스는 implements를 통해 상속하며, 여러개를 상속받을 수 있다.
+
+```java
+interface Predator{
+	String getFood();
+}
+class Zoo implements Predator{
+	String typeofanimal;
+	String getFood(String typeofanimal){
+		System.out.printlf("apple");
+	}
+```
+
+### 다형성
+
+여러가지 클래스가 하나의 클래스를 상속받는 경우, 인스턴스를 인자로 받아서, instanceof 를 통해 각 클래스마다 경우를 나누어 줄 수 있다.
+
+```java
+public void typeOfAnimal(Animal e){
+	if (e instanceof Dog){
+		System.out.println("왈왈!");
+	else if (e instanceof Cat){
+		System.out.println("먀옹~");
+}
+```
